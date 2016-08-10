@@ -4,6 +4,11 @@ var Game = function(opt){
 	this.context = this.canvas.getContext('2d');
 	this.keysDown = {};
 
+	  // Setup the background canvas.
+  this.bgRenderer = new PIXI.CanvasRenderer(this._width, this._height);
+  document.body.appendChild(this.bgRenderer.view);
+  this.bgStage = new PIXI.Stage();
+
 	window.addEventListener('keydown', function(event) {
 	    this.keysDown[event.which] = true;
 	  }.bind(this), false);
